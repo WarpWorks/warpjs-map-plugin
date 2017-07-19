@@ -1,0 +1,272 @@
+.map-table-title {
+    font-weight: bold;
+}
+
+.map-header {
+    position: relative;
+    background-image: none;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: @default-image-bg-color;
+    height: 200px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.large-font {
+    font-size: large;
+}
+
+.header-list {
+    height: 50px;
+    background-color: @heading-theme-reduced-opacity-bg-color;
+
+    .header-list-container {
+        text-align: left;
+        .outer-container {
+            padding-top: 10px;
+        }
+
+        .header-list-chevron {
+            top: 20px;
+            width: 15px;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            &.pull-left {
+            }
+
+            &.pull-right {
+                text-align: right;
+            }
+        }
+
+        .header-list-items {
+            /*width: calc(100% - 40px); Why is this not working? Converted to 60% */
+            width: 95%;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+}
+
+.vertical-list-title {
+    cursor: default;
+    color: @dark-font-color;
+    background-color: @heading-theme-bg-color;
+    font-weight: bold;
+}
+
+.header-spacer {
+    height: 100px;
+}
+
+.header-label {
+    &.row {
+        height: 50px;
+        .label-flag-col {
+            padding-left: 0;
+            padding-right: 0;
+            .label-flag {
+                border-top: 50px solid @theme-reduced-opacity-bg-color;
+                border-right: 30px solid transparent;
+                width: 45px;
+            }
+        }
+        .label-bg {
+            background-color: @theme-reduced-opacity-bg-color;
+            height: 100%;
+        }
+        .label-text {
+            display: flex;
+            align-items: center;
+            color: @light-font-color;
+            padding-left: 30px;
+            padding-right: 0;
+        }
+    }
+}
+
+.map-table-container {
+    overflow: auto;
+    th {
+        font-size: 11px;
+    }
+    table {
+        width: auto;
+        thead {
+            tr {
+                th {
+                    width: 75px;
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    width: 75px;
+                }
+            }
+        }
+    }
+    td {
+        .glyphicon-map-marker {
+            cursor: pointer;
+        }
+    }
+}
+
+
+.map-body {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+
+.horizontal-list {
+    .list-item {
+        background: none;
+        border-bottom: 5px solid transparent;
+        outline: none;
+        &:hover {
+            border-bottom: @list-item-border-color;
+        }
+        &.active-outer-button {
+            border-bottom: @list-item-border-color;
+        }
+    }
+}
+
+.vertical-list {
+    &.btn-group-vertical {
+        background-color: @default-contrast-bg-color;
+        border: 1px solid #f0f0f0;
+    }
+    .list-item {
+        background: none;
+        border-right: 5px solid transparent;
+        outline: none;
+        font-size: 11px;
+        text-align: left;
+        &:hover {
+            border-right: @list-item-border-color;
+            background-color: @heading-theme-bg-color;
+        }
+        &.active-outer-button {
+            border-right: @list-item-border-color;
+        }
+    }
+}
+
+.table-borderless {
+    background: transparent;
+    border: none;
+    table-layout: auto;
+    thead {
+        tr {
+            display: table-row;
+            vertical-align: top;
+            th {
+                border: none;
+            }
+        }
+    }
+    tbody {
+        tr {
+            display: table-row;
+            vertical-align: top;
+            th {
+                border: none;
+            }
+            td {
+                border: 1px solid black;
+            }
+        }
+    }
+}
+
+.map-marker-cell {
+    text-align:center;
+}
+
+.map-marker-pin {
+    background: none;
+    outline: none;
+    cursor: pointer;
+    color: @map-marker-link-font-color;
+    .map-marker-shift {
+       right: -9px;
+    }
+    .map-marker-plus {
+       position:relative;
+       font-size: 12px;
+       top: -10px;
+       left: 2px;
+    }
+    .map-marker-counter {
+        margin-left: 5px;
+    }
+}
+
+.map-marker-modal-list {
+    .map-marker-modal-item {
+        &:nth-child(even){
+            background: @container-bg-color;
+        }
+        .toggler {
+            cursor: pointer;
+
+            &.collapsed {
+                & + .map-marker-preview-container {
+                    display: none;
+                }
+
+                .expand-preview {
+                    display: inline;
+                }
+
+                .collapse-preview {
+                    display: none;
+                }
+
+                .map-marker-preview-container {
+                    display: none;
+                }
+            }
+
+            .expand-preview {
+                display: none;
+            }
+
+        }
+
+        .map-marker-preview-container {
+            .map-marker-preview-content {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+
+}
+
+#dropdownMenu1.btn {
+    border-radius: 0px;
+}
+
+#dropdownMenu1 + .dropdown-menu {
+    border-radius: 0px;
+}
+
+.pagination-next, .pagination-previous {
+    cursor: pointer;
+}

@@ -1,0 +1,44 @@
+{
+  "name": "@warp-works/warpjs-map-plugin",
+  "version": "0.1.0",
+  "description": "WarpJS map browser plugin",
+  "main": "index.js",
+  "scripts": {
+    "coverage:integration": "nyc npm run -s test:integration",
+    "coverage:unit": "nyc npm run -s test:unit",
+    "coverage": "npm run -s coverage:unit && npm run -s coverage:integration",
+    "test:integration": "mocha \"lib/**/*.integration.test.js\" \"client/**/*.integration.test.js\" \"server/**/*.integration.test.js\"",
+    "test:unit": "mocha \"lib/**/*.unit.test.js\" \"client/**/*.unit.test.js\" \"server/**/*.unit.test.js\"",
+    "test": "npm run -s test:unit "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WarpWorks/warpjs-map-plugin.git"
+  },
+  "keywords": [
+    "Warp-Works",
+    "WarpJS",
+    "MapBrowser"
+  ],
+  "author": "Huu Da Tran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WarpWorks/warpjs-map-plugin/issues"
+  },
+  "homepage": "https://github.com/WarpWorks/warpjs-map-plugin#readme",
+  "peerDependencies": {
+    "express": ">=4.0.0"
+  },
+  "devDependencies": {
+    "@quoin/node-test-helpers": "0.2.2",
+    "express": "4.15.3",
+    "mocha": "3.4.2"
+  },
+  "dependencies": {
+    "@quoin/expressjs-routes-info": "0.1.7",
+    "@warp-works/warpjs-mongo-persistence": "0.1.1",
+    "@warp-works/warpjs-utils": "0.1.5",
+    "bluebird": "3.5.0",
+    "lodash": "4.17.4"
+  }
+}

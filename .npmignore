@@ -1,0 +1,3 @@
+/.npmignore
+/server/**/*.test.js
+/*.tgz
