@@ -1,2 +1,5 @@
+/.nyc_output
 /*.tgz
+/assets
 /node_modules
+/reports

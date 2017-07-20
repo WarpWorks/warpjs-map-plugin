@@ -58,8 +58,11 @@ describe("server/map/controllers", () => {
                 expect(res._getRenderView()).to.equal('index');
                 expect(res._getRenderData()).to.deep.equal({
                     title: 'Map',
-                    bundle: 'base-url/assets/map.js',
-                    cssFile: 'base-url/assets/map.css',
+                    bundles: [
+                        'base-url/assets/vendor.min.js',
+                        'base-url/assets/map.min.js'
+                    ],
+                    cssFile: 'base-url/assets/style.min.css',
                     baseUrl: 'base-url',
                     staticUrl: 'static-url'
                 });

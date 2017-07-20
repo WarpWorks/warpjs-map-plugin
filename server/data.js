@@ -112,13 +112,13 @@ function extractDocuments(config) {
 
 function generateSelectedLinks(config, results) {
     let selectLinks = config.mapTypes
-                .filter((type) => type !== config.columnParam && type !== config.rowParam)
-                .map((type) => {
-                    return {
-                        name: type,
-                        href: routesInfo.expand('bothTypes', {column: config.columnParam, row: type})
-                    };
-                });
+        .filter((type) => type !== config.columnParam && type !== config.rowParam)
+        .map((type) => {
+            return {
+                name: type,
+                href: routesInfo.expand('bothTypes', {column: config.columnParam, row: type})
+            };
+        });
 
     results.selectableLinks = {};
     results.selectableLinks.activeSelectedType = config.rowParam;
@@ -215,14 +215,14 @@ function getData(dbConfig, warpCore, column, row) {
     if (column && row && column !== row) {
         const persistenceConfig = generatePersistenceConfiguration(dbConfig, warpCore, column, row);
         return generatePayload(persistenceConfig)
-        .then((generatedPayload) => {
-            generatedPayload.columns = generatedPayload.columns.map(transformDocument).sort(byPositionThenName);
-            generatedPayload.rows = generatedPayload.rows.map(transformDocument).sort(byPositionThenName);
-            generatedPayload.aggregations = transformCollectionDocuments(generatedPayload.aggregations);
-            generatedPayload.mapMarker = transformCollectionDocuments(generatedPayload.mapMarker);
+            .then((generatedPayload) => {
+                generatedPayload.columns = generatedPayload.columns.map(transformDocument).sort(byPositionThenName);
+                generatedPayload.rows = generatedPayload.rows.map(transformDocument).sort(byPositionThenName);
+                generatedPayload.aggregations = transformCollectionDocuments(generatedPayload.aggregations);
+                generatedPayload.mapMarker = transformCollectionDocuments(generatedPayload.mapMarker);
 
-            return generatedPayload;
-        });
+                return generatedPayload;
+            });
     } else {
         throw new MapError("Cannot extract data from DB", "some error");
     }

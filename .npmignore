@@ -1,3 +1,8 @@
+/.*rc
 /.npmignore
+/.nyc_output
+/client
+/grunt
+/Gruntfile.js
 /server/**/*.test.js
 /*.tgz

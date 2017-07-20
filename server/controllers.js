@@ -3,7 +3,7 @@ const routesInfo = require('@quoin/expressjs-routes-info');
 
 const warpjsUtils = require('@warp-works/warpjs-utils');
 
-const mongoData = require('./data');
+const data = require('./data');
 
 function embedMapMarker(resource, req, mapMarker, id) {
     const subCols = mapMarker.coordinates.filter((coord) => coord.type === "subColumn");
@@ -25,37 +25,40 @@ function getMapData(config, warpCore, req, res) {
     const column = (req.params && req.params.column) ? req.params.column : config.mapTypes[0];
     const row = (req.params && req.params.row) ? req.params.row : config.mapTypes.filter((type) => type !== column)[0];
 
-    return mongoData.getData(config, warpCore, column, row)
-                .then((results) => {
-                    const resource = warpjsUtils.createResource(req, _.pick(results, ['columns', 'rows', 'aggregations', 'selectableLinks']));
+    return data.getData(config, warpCore, column, row)
+        .then((results) => {
+            const resource = warpjsUtils.createResource(req, _.pick(results, ['columns', 'rows', 'aggregations', 'selectableLinks']));
 
-                    // Embed image to columns.
-                    resource.columns.forEach((column) => {
-                        if (!column.ImageURL) {
-                            const name = column.name.replace(/^(\w+).*/, '$1.jpg');
-                            column.ImageURL = `/public/iic_images/map/${name}`;
-                        }
-                    });
+            // Embed image to columns.
+            resource.columns.forEach((column) => {
+                if (!column.ImageURL) {
+                    const name = column.name.replace(/^(\w+).*/, '$1.jpg');
+                    column.ImageURL = `/public/iic_images/map/${name}`;
+                }
+            });
 
-                    resource.paginationSettings = {
-                        'hidden-xs': 3,
-                        'hidden-sm': 4,
-                        'hidden-md': 5,
-                        'hidden-lg': 5
-                    };
+            resource.paginationSettings = {
+                'hidden-xs': 3,
+                'hidden-sm': 4,
+                'hidden-md': 5,
+                'hidden-lg': 5
+            };
 
-                    _.forEach(results.mapMarker, embedMapMarker.bind(null, resource, req));
-                    warpjsUtils.sendHal(req, res, resource);
-                })
-                .catch(warpjsUtils.sendError.bind(null, req, res));
+            _.forEach(results.mapMarker, embedMapMarker.bind(null, resource, req));
+            warpjsUtils.sendHal(req, res, resource);
+        })
+        .catch(warpjsUtils.sendError.bind(null, req, res));
 }
 
 function initialMap(config, warpCore, req, res) {
     warpjsUtils.wrapWith406(res, {
         html: () => {
             warpjsUtils.sendIndex(res, 'Map',
-                `${req.app.get('base-url')}/assets/map.js`,
-                `${req.app.get('base-url')}/assets/map.css`
+                [
+                    `${req.app.get('base-url')}/assets/vendor.min.js`,
+                    `${req.app.get('base-url')}/assets/map.min.js`
+                ],
+                `${req.app.get('base-url')}/assets/style.min.css`
             );
         },
         [warpjsUtils.constants.HAL_CONTENT_TYPE]: () => {
@@ -67,4 +70,3 @@ function initialMap(config, warpCore, req, res) {
 module.exports = {
     initialMap
 };
-

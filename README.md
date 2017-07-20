@@ -35,6 +35,11 @@ Add the following configuration section to your projects:
           "name": "@warp-works/warpjs-map-plugin",
           "path": "/map",
           "config": {
+            "domainName": "Your-schema-domain",
+            "persistence": {
+              "host": "localhost",
+              "dbName": "IIC"
+            },
             "mapMarkerType": "Your-Map-Entity",
             "mapTypes": [
               "Default-Column-Type",

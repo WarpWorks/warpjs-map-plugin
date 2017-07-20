@@ -1,0 +1,11 @@
+<div class="vertical-list-title dropdown full-width">
+  <button class="btn btn-default dropdown-toggle full-width" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    {{selectableLinks.activeSelectedType}}
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    {{#each selectableLinks.selectable as |value key|}}
+        <li><a class="selectable-link-item" data-url="{{value.href}}" href="#">{{value.name}}</a></li>
+    {{/each}}
+  </ul>
+</div>

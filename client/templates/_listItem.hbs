@@ -1,0 +1,7 @@
+{{#each elements}}
+    <li class="list-item bold btn btn-secondary hidden-xs hidden-sm hidden-md hidden-lg"
+        data-id="{{id}}"
+        data-href="{{href}}"
+        {{#if ImageURL}}data-bg-img-url="{{ImageURL}}"{{/if}}
+        >{{name}}</li>
+{{/each}}
