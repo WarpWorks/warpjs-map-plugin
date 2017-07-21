@@ -79,8 +79,8 @@ describe('client/map/lib/utilities/initialize', () => {
         stubs['./paginate'] = paginatePath;
         stubs['./show-map-marker-list-modal'] = showMapMarkerListModalPath;
         stubs['./update-inner-grid'] = updateInnerGridPath;
-        stubs['./../../templates/map-marker-list-modal.hbs'] = mapMarkerListModalTemplatePath;
-        stubs['./../../templates/_mapTable.hbs'] = mapTableTemplatePath;
+        stubs['./../templates/map-marker-list-modal.hbs'] = mapMarkerListModalTemplatePath;
+        stubs['./../templates/_mapTable.hbs'] = mapTableTemplatePath;
 
         initialize = proxyquire.noCallThru().load(require.resolve('./initialize'), stubs);
 

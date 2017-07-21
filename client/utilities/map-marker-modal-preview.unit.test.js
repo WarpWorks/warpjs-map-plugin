@@ -7,7 +7,9 @@ describe('client/lib/utilities/map-marker-modal-preview', () => {
     let mapMarkerModalPreview;
 
     beforeEach(() => {
-        stubs = {};
+        stubs = {
+            './../templates/map-marker-modal-preview.hbs': testHelpers.stub()
+        };
 
         mapMarkerModalPreview = proxyquire.noCallThru().load(require.resolve('./map-marker-modal-preview'), stubs);
     });

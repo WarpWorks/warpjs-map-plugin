@@ -88,9 +88,8 @@ describe('client/map/lib/utilities/select-row-type', () => {
         stubs['./initialize'] = initializePath;
         stubs['./map-utils'] = mapUtilsPath;
         stubs['./paginate'] = paginatePath;
-        stubs['./../../../utils'] = utilsPath;
-        stubs['./../../templates/index.hbs'] = indexTemplatePath;
-        stubs['./../../../common/templates/_error.hbs'] = errorTemplatePath;
+        stubs['./../templates/index.hbs'] = indexTemplatePath;
+        stubs['./../templates/_error.hbs'] = errorTemplatePath;
     });
 
     afterEach(() => {
@@ -139,7 +138,7 @@ describe('client/map/lib/utilities/select-row-type', () => {
             }
         };
 
-        stubs['./../../../utils'] = {
+        stubs['@warp-works/warpjs-utils'] = {
             getCurrentPageHAL: () => {
                 return Promise.resolve(mockResponses.succesfulMockResponse());
             }

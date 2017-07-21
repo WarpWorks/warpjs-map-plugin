@@ -7,8 +7,8 @@
     "coverage:integration": "nyc npm run -s test:integration",
     "coverage:unit": "nyc npm run -s test:unit",
     "coverage": "npm run -s coverage:unit",
-    "test:integration": "mocha -r jsdom-global/register \"lib/**/*.integration.test.js\" \"client/**/*.integration.test.js\" \"server/**/*.integration.test.js\"",
-    "test:unit": "mocha -r jsdom-global/register \"lib/**/*.unit.test.js\" \"client/**/*.unit.test.js\" \"server/**/*.unit.test.js\"",
+    "test:integration": "mocha -r jsdom-global/register \"client/**/*.integration.test.js\" \"server/**/*.integration.test.js\"",
+    "test:unit": "mocha -r jsdom-global/register \"client/**/*.unit.test.js\" \"server/**/*.unit.test.js\"",
     "test": "npm run -s test:unit "
   },
   "repository": {
@@ -63,7 +63,7 @@
   "dependencies": {
     "@quoin/expressjs-routes-info": "0.1.7",
     "@warp-works/warpjs-mongo-persistence": "0.1.1",
-    "@warp-works/warpjs-utils": "0.1.7",
+    "@warp-works/warpjs-utils": "0.1.8",
     "bluebird": "3.5.0",
     "lodash": "4.17.4"
   }
