@@ -116,7 +116,7 @@ function generateSelectedLinks(config, results) {
         .map((type) => {
             return {
                 name: type,
-                href: routesInfo.expand('bothTypes', {column: config.columnParam, row: type})
+                href: routesInfo.expand('W2:plugin:map:column-row', {column: config.columnParam, row: type})
             };
         });
 

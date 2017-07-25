@@ -1,9 +1,23 @@
 const _ = require('lodash');
+// const debug = require('debug')('W2:plugin:map:server:controllers');
 const routesInfo = require('@quoin/expressjs-routes-info');
 
 const warpjsUtils = require('@warp-works/warpjs-utils');
 
 const data = require('./data');
+
+const PAGINATION_SETTINGS_DEFAULTS = {
+    xs: 3,
+    sm: 4,
+    md: 5,
+    lg: 5
+};
+
+function mapSettingsReducer(config, memo, defaultValue, paginationKey) {
+    return _.extend(memo, {
+        [`hidden-${paginationKey}`]: config.paginationSettings[paginationKey] || defaultValue
+    });
+}
 
 function embedMapMarker(resource, req, mapMarker, id) {
     const subCols = mapMarker.coordinates.filter((coord) => coord.type === "subColumn");
@@ -37,15 +51,39 @@ function getMapData(config, warpCore, req, res) {
                 }
             });
 
-            resource.paginationSettings = {
-                'hidden-xs': 3,
-                'hidden-sm': 4,
-                'hidden-md': 5,
-                'hidden-lg': 5
-            };
+            // FIXME: The selectable links should have been under _embedded and
+            // contain all possible entries:
+            //
+            //  {
+            //    _embedded: {
+            //      selectableLinks: [{
+            //        name: "name1",
+            //        selected: true,
+            //        _links: {
+            //          self: {
+            //            href: '...'
+            //          }
+            //        }
+            //      }, {
+            //        name: "name2",
+            //        selected: false,
+            //        _links: {
+            //          self: {
+            //            href: '...'
+            //          }
+            //        }
+            //      }, {
+            //        ...
+            //      }]
+            //    }
+            //  }
+            // Embed row links
+            // debug(`selectableLinks:`, results.selectableLinks);
+
+            resource.paginationSettings = _.reduce(PAGINATION_SETTINGS_DEFAULTS, mapSettingsReducer.bind(null, config), {});
 
             _.forEach(results.mapMarker, embedMapMarker.bind(null, resource, req));
-            warpjsUtils.sendHal(req, res, resource);
+            warpjsUtils.sendHal(req, res, resource, routesInfo);
         })
         .catch(warpjsUtils.sendError.bind(null, req, res));
 }
