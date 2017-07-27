@@ -1,8 +1,8 @@
 const _ = require('lodash');
 const testHelpers = require('@quoin/node-test-helpers');
+const warpjsUtils = require('@warp-works/warpjs-utils');
 
-const controllers = require('./controllers');
-const {constants} = require('@warp-works/warpjs-utils');
+const controllers = require('./index');
 
 const expect = testHelpers.expect;
 
@@ -11,6 +11,12 @@ function appGet(key) {
 }
 
 describe("server/map/controllers", () => {
+    let persistence;
+
+    beforeEach(() => {
+        persistence = {};
+    });
+
     it("should export an object", () => {
         expect(controllers).to.be.an('object');
     });
@@ -33,7 +39,7 @@ describe("server/map/controllers", () => {
             };
             const {req, res} = testHelpers.createMocks(reqOptions);
 
-            controllers.initialMap(null, null, req, res);
+            controllers.initialMap(null, null, persistence, req, res);
 
             setTimeout(() => {
                 expect(res._getStatusCode()).to.equal(406);
@@ -51,7 +57,7 @@ describe("server/map/controllers", () => {
             req.app = { get: appGet };
             res.app = { get: appGet };
 
-            controllers.initialMap(null, null, req, res);
+            controllers.initialMap(null, null, persistence, req, res);
 
             setTimeout(() => {
                 expect(res._getStatusCode()).to.equal(200);
@@ -78,12 +84,12 @@ describe("server/map/controllers", () => {
             const reqOptions = {
                 url: '/some/original/url',
                 headers: {
-                    Accept: constants.HAL_CONTENT_TYPE
+                    Accept: warpjsUtils.constants.HAL_CONTENT_TYPE
                 }
             };
             const {req, res} = testHelpers.createMocks(reqOptions);
 
-            controllers.initialMap(config, null, req, res);
+            controllers.initialMap(config, null, persistence, req, res);
 
             setTimeout(() => {
                 expect(res._getStatusCode()).to.equal(200);

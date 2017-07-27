@@ -1,5 +1,9 @@
 # Releases
 
+# 0.1.1 - 2017-07-26
+
+- Updated to latest plug-in architecture by passing persistence.
+
 # 0.1.0 - 2017-07-25
 
 - Initial release.

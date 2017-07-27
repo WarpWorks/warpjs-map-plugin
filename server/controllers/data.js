@@ -1,10 +1,9 @@
 const _ = require('lodash');
-const Persistence = require('@warp-works/warpjs-mongo-persistence');
 const Promise = require('bluebird');
 const routesInfo = require('@quoin/expressjs-routes-info');
 
 const {byPositionThenName} = require('@warp-works/warpjs-utils');
-const MapError = require('./error');
+const MapError = require('./../error');
 
 const PARENT_RELN_NAMES = {};
 
@@ -95,8 +94,7 @@ function fetchDocuments(persistence, entityArray, type, result) {
     }, result);
 }
 
-function extractDocuments(config) {
-    const persistence = new Persistence(config.host, config.dbName);
+function extractDocuments(persistence, config) {
     const result = [];
     return Promise.resolve(result)
         .then(fetchDocuments.bind(null, persistence, [config.domain], 'domain'))
@@ -127,7 +125,7 @@ function generateSelectedLinks(config, results) {
     return results;
 }
 
-function generatePayload(persistenceConfiguration) {
+function generatePayload(persistence, persistenceConfiguration) {
     const converterMap = {
         domain: domainConverter,
         column: entityConverter.bind(null, 'columns'),
@@ -144,7 +142,7 @@ function generatePayload(persistenceConfiguration) {
         mapMarker: {}
     };
 
-    return extractDocuments(persistenceConfiguration)
+    return extractDocuments(persistence, persistenceConfiguration)
         .then(
             convertToResults.bind(null, converterMap, memo),
             (error) => {
@@ -160,8 +158,6 @@ function generatePersistenceConfiguration(dbConfig, warpCore, colType, rowType) 
     const mapMarker = dbConfig.mapMarkerType;
     const domain = warpCore.getDomainByName(dbConfig.domainName);
 
-    persistenceConfiguration.host = dbConfig.persistence.host;
-    persistenceConfiguration.dbName = dbConfig.persistence.dbName;
     persistenceConfiguration.mapMarker = [domain.getEntityByName(mapMarker)];
 
     persistenceConfiguration.domain = domain;
@@ -211,10 +207,12 @@ function transformCollectionDocuments(collection) {
     return _.reduce(collection, (memo, doc, entityID) => _.extend(memo, {[entityID]: transformDocument(doc)}), {});
 }
 
-function getData(dbConfig, warpCore, column, row) {
+function getData(dbConfig, warpCore, Persistence, column, row) {
     if (column && row && column !== row) {
         const persistenceConfig = generatePersistenceConfiguration(dbConfig, warpCore, column, row);
-        return generatePayload(persistenceConfig)
+
+        const persistence = new Persistence(dbConfig.persistence.host, dbConfig.persistence.name);
+        return generatePayload(persistence, persistenceConfig)
             .then((generatedPayload) => {
                 generatedPayload.columns = generatedPayload.columns.map(transformDocument).sort(byPositionThenName);
                 generatedPayload.rows = generatedPayload.rows.map(transformDocument).sort(byPositionThenName);

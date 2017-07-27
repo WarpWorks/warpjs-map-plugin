@@ -36,10 +36,6 @@ Add the following configuration section to your projects:
           "path": "/map",
           "config": {
             "domainName": "Your-schema-domain",
-            "persistence": {
-              "host": "localhost",
-              "dbName": "IIC"
-            },
             "mapMarkerType": "Your-Map-Entity",
             "mapTypes": [
               "Default-Column-Type",

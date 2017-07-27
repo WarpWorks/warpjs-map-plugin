@@ -15,6 +15,7 @@ module.exports = {
         },
         src: [
             '*.js',
+            '!*.test.js',
             'grunt/**/*.js',
             'lib/**/*.js',
             '!lib/**/*.test.js',
@@ -36,9 +37,6 @@ module.exports = {
                 '$warp'
             ],
             rules: {
-                'no-console': 'off', // DEBUG
-                'standard/no-callback-literal': 'off', // DEBUG
-                'camelcase': 'off' // DEBUG
             }
         },
         src: [
@@ -54,7 +52,9 @@ module.exports = {
             }
         },
         src: [
-            'lib/**/*.test.js'
+            '*.test.js',
+            'lib/**/*.test.js',
+            'server/**/*.test.js'
         ]
     }
 
