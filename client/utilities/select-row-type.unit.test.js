@@ -13,7 +13,7 @@ const mockResponses = require('./current-hal-mock-response');
 function generateHTML() {
     return `
     <div>
-        <div id="i3c-portal-placeholder"></div>
+        <div id="warpjs-content-placeholder"></div>
         <div class="map-header">
             <div class="column-list">
                 <span class="pagination-previous"></span>
@@ -120,7 +120,7 @@ describe('client/map/lib/utilities/select-row-type', () => {
         selectRowType($, mapUtility, paginationSetting, clickPosition, mapMarkerModalPreview, columnEvent);
 
         setTimeout(() => {
-            expect($('#i3c-portal-placeholder').html()).to.equal(error());
+            expect($('#warpjs-content-placeholder').html()).to.equal(error());
             done();
         }, 300);
     });
@@ -157,7 +157,7 @@ describe('client/map/lib/utilities/select-row-type', () => {
             expect(mapUtility.getActiveColumn).to.have.callCount(1);
             expect(mapUtilsPath.prototype.updateProperties).to.have.callCount(1);
             expect(mapUtilsPath.prototype.getFormattedData).to.have.callCount(1);
-            expect($('#i3c-portal-placeholder').html()).to.equal(success());
+            expect($('#warpjs-content-placeholder').html()).to.equal(success());
             expect(initializePath).to.have.callCount(1);
             expect($._data($('.map-body').get(0)).events.click.length).to.equal(1);
             expect(paginatePath).to.have.callCount(2);

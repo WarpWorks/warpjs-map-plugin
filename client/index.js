@@ -15,7 +15,7 @@ const errorTemplate = require('./templates/_error.hbs');
         warpjsUtils.getCurrentPageHAL($)
             .then((result) => {
                 if (result.error) {
-                    $('#i3c-portal-placeholder').html(errorTemplate(result.data));
+                    $('#warpjs-content-placeholder').html(errorTemplate(result.data));
                 } else {
                     const mapUtility = new MapUtils(result.data);
                     const paginationSettings = result.data.paginationSettings;
@@ -25,7 +25,7 @@ const errorTemplate = require('./templates/_error.hbs');
 
                     result.data.formattedMap = mapUtility.getFormattedData();
 
-                    $('#i3c-portal-placeholder').html(template(result.data));
+                    $('#warpjs-content-placeholder').html(template(result.data));
 
                     initialize(
                         $,

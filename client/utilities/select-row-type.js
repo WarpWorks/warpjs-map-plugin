@@ -12,7 +12,7 @@ function selectRowType($, mapUtilityClass, paginationSettings, clickPosition, ma
     warpjsUtils.getCurrentPageHAL($, $(event.currentTarget).data('url'))
         .then((result) => {
             if (result.error) {
-                $('#i3c-portal-placeholder').html(errorTemplate(result.data));
+                $('#warpjs-content-placeholder').html(errorTemplate(result.data));
             } else {
                 const activeElementIndex = $(constants.COLUMN_CONTAINER).find(`.${constants.ACTIVE_BUTTON_CLASS_NAME}`).index();
                 const currentClickPosition = clickPosition.getClickPosition();
@@ -23,7 +23,7 @@ function selectRowType($, mapUtilityClass, paginationSettings, clickPosition, ma
 
                 result.data.formattedMap = mapUtilityClass.getFormattedData();
 
-                $('#i3c-portal-placeholder').html(template(result.data));
+                $('#warpjs-content-placeholder').html(template(result.data));
 
                 initialize(
                     $,

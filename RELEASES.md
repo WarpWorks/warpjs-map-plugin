@@ -1,5 +1,9 @@
 # Releases
 
+# 0.1.2 - 2017-07-31
+
+- Fixed 'i3c-portal-placeholder' to 'warpjs-content-placeholder'.
+
 # 0.1.1 - 2017-07-26
 
 - Updated to latest plug-in architecture by passing persistence.
