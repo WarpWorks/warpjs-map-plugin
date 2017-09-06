@@ -1,5 +1,9 @@
 # Releases
 
+# 0.1.3 - YYYY-MM-DD
+
+- Fixed to use RelnID instead of RelnName.
+
 # 0.1.2 - 2017-07-31
 
 - Fixed 'i3c-portal-placeholder' to 'warpjs-content-placeholder'.

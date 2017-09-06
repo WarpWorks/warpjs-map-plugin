@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const Promise = require('bluebird');
 const RoutesInfo = require('@quoin/expressjs-routes-info');
 const warpjsUtils = require('@warp-works/warpjs-utils');
 
@@ -24,11 +25,11 @@ function embedMapMarker(resource, req, mapMarker, id) {
     if (subCols.length && subRows.length) {
         const url = RoutesInfo.expand('entity', {
             id: mapMarker.id,
-            type: mapMarker.hsType
+            type: mapMarker.W2Type
         });
 
         const embeddedResource = warpjsUtils.createResource(url, mapMarker);
-        embeddedResource.link("preview", RoutesInfo.expand('entity', {type: mapMarker.hsType, id: mapMarker.id, preview: true}));
+        embeddedResource.link("preview", RoutesInfo.expand('entity', {type: mapMarker.W2Type, id: mapMarker.id, preview: true}));
         resource.embed('mapMarkers', embeddedResource);
     }
 }
@@ -37,7 +38,10 @@ module.exports = (config, warpCore, Persistence, req, res) => {
     const column = (req.params && req.params.column) ? req.params.column : config.mapTypes[0];
     const row = (req.params && req.params.row) ? req.params.row : config.mapTypes.filter((type) => type !== column)[0];
 
-    return data.getData(config, warpCore, Persistence, column, row)
+    const publicPrefix = RoutesInfo.expand('W2:app:public');
+
+    return Promise.resolve()
+        .then(() => data.getData(config, warpCore, Persistence, column, row))
         .then((results) => {
             const resource = warpjsUtils.createResource(req, _.pick(results, ['columns', 'rows', 'aggregations', 'selectableLinks']));
 
@@ -45,38 +49,9 @@ module.exports = (config, warpCore, Persistence, req, res) => {
             resource.columns.forEach((column) => {
                 if (!column.ImageURL) {
                     const name = column.name.replace(/^(\w+).*/, '$1.jpg');
-                    column.ImageURL = `/public/iic_images/map/${name}`;
+                    column.ImageURL = `${publicPrefix}/iic_images/map/${name}`;
                 }
             });
-
-            // FIXME: The selectable links should have been under _embedded and
-            // contain all possible entries:
-            //
-            //  {
-            //    _embedded: {
-            //      selectableLinks: [{
-            //        name: "name1",
-            //        selected: true,
-            //        _links: {
-            //          self: {
-            //            href: '...'
-            //          }
-            //        }
-            //      }, {
-            //        name: "name2",
-            //        selected: false,
-            //        _links: {
-            //          self: {
-            //            href: '...'
-            //          }
-            //        }
-            //      }, {
-            //        ...
-            //      }]
-            //    }
-            //  }
-            // Embed row links
-            // debug(`selectableLinks:`, results.selectableLinks);
 
             resource.paginationSettings = _.reduce(PAGINATION_SETTINGS_DEFAULTS, mapSettingsReducer.bind(null, config), {});
 

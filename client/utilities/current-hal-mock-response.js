@@ -40,7 +40,7 @@ function succesfulMockResponse() {
                         ArchitecturePattern: [],
                         id: "58b75b9810d3e0278c2772ed",
                         name: "Track & Trace",
-                        hsType: "HotSpot",
+                        W2Type: "HotSpot",
                         coordinates: [
                             {
                                 id: "58b75cba10d3e0278c2772f0",
@@ -69,7 +69,7 @@ function succesfulMockResponse() {
                     WriteAccess: [],
                     id: "58b753ad17fa6d2418c8a806",
                     name: "Agriculture",
-                    hsType: "IndustrySector",
+                    W2Type: "IndustrySector",
                     href: "/entity/IndustrySector/58b753ad17fa6d2418c8a806"
                 }
             ],
@@ -85,7 +85,7 @@ function succesfulMockResponse() {
                     WriteAccess: [],
                     id: "58b757653c62e726a0eb38c6",
                     name: "Asset Monitoring",
-                    hsType: "ApplicationArea",
+                    W2Type: "ApplicationArea",
                     href: "/entity/ApplicationArea/58b757653c62e726a0eb38c6"
                 }
             ],
@@ -101,7 +101,7 @@ function succesfulMockResponse() {
                     WriteAccess: [],
                     id: "58b756df3c62e726a0eb38c2",
                     name: "Building / Construction",
-                    hsType: "IndustryVertical",
+                    W2Type: "IndustryVertical",
                     href: "/entity/IndustryVertical/58b756df3c62e726a0eb38c2"
                 },
                 "58b7595710d3e0278c2772da": {
@@ -116,7 +116,7 @@ function succesfulMockResponse() {
                     WriteAccess: [],
                     id: "58b7595710d3e0278c2772da",
                     name: "Throughput",
-                    hsType: "UseCase",
+                    W2Type: "UseCase",
                     href: "/entity/UseCase/58b7595710d3e0278c2772da"
                 }
             },
