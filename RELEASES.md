@@ -1,5 +1,9 @@
 # Releases
 
+## 0.2.1 - 2017-10-11
+
+- Fixed to use templates in warpjs-utils.
+
 ## 0.2.0 - 2017-10-06
 
 - Fixed to use RelnID instead of RelnName.
