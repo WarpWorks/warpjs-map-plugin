@@ -4,5 +4,6 @@
 /client
 /grunt
 /Gruntfile.js
+/*.test.js
 /server/**/*.test.js
 /*.tgz
