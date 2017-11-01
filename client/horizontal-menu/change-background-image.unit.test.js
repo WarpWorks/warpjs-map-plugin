@@ -10,7 +10,7 @@ function generateHTML(imageUrl) {
     return `<div id="mydiv" style="background-image: ${imageUrl};"></div>`;
 }
 
-describe('client/map/lib/utilities/change-background-image', () => {
+describe('client/horizontal-menu/change-background-image', () => {
     let jsdomCleanup;
     let originalImageUrl;
 

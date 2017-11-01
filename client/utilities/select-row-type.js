@@ -1,12 +1,12 @@
 const warpjsUtils = require('@warp-works/warpjs-utils');
 
-const constants = require('./constants');
+const constants = require('./../constants');
 const initialize = require('./initialize');
 const MapUtils = require('./map-utils');
 const paginate = require('./paginate');
 
-const template = require('./../templates/index.hbs');
-const errorTemplate = require('./../templates/_error.hbs');
+const template = require('./../template.hbs');
+const errorTemplate = require('./../error.hbs');
 
 function selectRowType($, mapUtilityClass, paginationSettings, clickPosition, mapMarkerModalPreview, event) {
     warpjsUtils.getCurrentPageHAL($, $(event.currentTarget).data('url'))

@@ -1,6 +1,6 @@
 const addActiveClassToRowLists = require('./add-active-class-to-row-lists');
-const changeBackGroundImage = require('./change-background-image');
-const constants = require('./constants');
+const changeBackGroundImage = require('./../horizontal-menu/change-background-image');
+const constants = require('./../constants');
 
 module.exports = ($, mapUtility, type, mapTableTemplate, event) => {
     const elementObject = {

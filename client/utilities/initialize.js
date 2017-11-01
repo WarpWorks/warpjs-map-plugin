@@ -1,13 +1,13 @@
 const addActiveClassToRowLists = require('./add-active-class-to-row-lists');
-const changeBackGroundImage = require('./change-background-image');
-const constants = require('./constants');
+const changeBackGroundImage = require('./../horizontal-menu/change-background-image');
+const constants = require('./../constants');
 const initializePaginationStyles = require('./initialize-pagination-styles');
 const paginate = require('./paginate');
 const showMapMarkerListModal = require('./show-map-marker-list-modal');
 const updateInnerGrid = require('./update-inner-grid');
 
-const modalTemplate = require('./../templates/map-marker-list-modal.hbs');
-const mapTableTemplate = require('./../templates/_mapTable.hbs');
+const modalTemplate = require('./../marker-list-modal/template.hbs');
+const mapTableTemplate = require('./../marker-table/template.hbs');
 
 module.exports = ($, mapUtility, paginationSettings, clickPosition, activeColumnListItem, mapMarkerModalPreview) => {
     const arrowTypePrevious = "previous";

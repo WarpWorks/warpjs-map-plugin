@@ -1,14 +1,14 @@
 const warpjsUtils = require('@warp-works/warpjs-utils');
 
 const ClickPosition = require('./utilities/click-position');
-const constants = require('./utilities/constants');
-const MapMarkerModalPreview = require('./utilities/map-marker-modal-preview');
+const constants = require('./constants');
+const MapMarkerModalPreview = require('./preview-modal');
 const initialize = require('./utilities/initialize');
 const MapUtils = require('./utilities/map-utils');
 const selectRowType = require('./utilities/select-row-type');
 
-const template = require('./templates/index.hbs');
-const errorTemplate = require('./templates/_error.hbs');
+const template = require('./template.hbs');
+const errorTemplate = require('./error.hbs');
 
 (($) => {
     $(document).ready(() => {

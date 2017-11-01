@@ -2,7 +2,7 @@ const $ = require('jquery');
 const jsdomGlobal = require('jsdom-global');
 const testHelpers = require('@quoin/node-test-helpers');
 
-const constants = require('./constants');
+const constants = require('./../constants');
 
 const expect = testHelpers.expect;
 const stub = testHelpers.stub;
@@ -62,9 +62,10 @@ describe('client/map/lib/utilities/update-inner-grid', () => {
         addActiveClassToRowListsPath = stub();
         changeBackgroundImagePath = stub();
 
-        stubs = {};
-        stubs['./add-active-class-to-row-lists'] = addActiveClassToRowListsPath;
-        stubs['./change-background-image'] = changeBackgroundImagePath;
+        stubs = {
+            './add-active-class-to-row-lists': addActiveClassToRowListsPath,
+            './../horizontal-menu/change-background-image': changeBackgroundImagePath
+        };
 
         updateInnerGrid = proxyquire.noCallThru().load(require.resolve('./update-inner-grid'), stubs);
 

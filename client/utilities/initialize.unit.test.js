@@ -2,7 +2,7 @@ const $ = require('jquery');
 const jsdomGlobal = require('jsdom-global');
 const testHelpers = require('@quoin/node-test-helpers');
 
-const constants = require('./constants');
+const constants = require('./../constants');
 
 const expect = testHelpers.expect;
 const stub = testHelpers.stub;
@@ -72,15 +72,16 @@ describe('client/map/lib/utilities/initialize', () => {
         mapMarkerListModalTemplatePath = stub();
         mapTableTemplatePath = stub();
 
-        stubs = {};
-        stubs['./add-active-class-to-row-lists'] = addActiveClassToRowListsPath;
-        stubs['./change-background-image'] = changeBackgroundImagePath;
-        stubs['./initialize-pagination-styles'] = initializePaginationStylesPath;
-        stubs['./paginate'] = paginatePath;
-        stubs['./show-map-marker-list-modal'] = showMapMarkerListModalPath;
-        stubs['./update-inner-grid'] = updateInnerGridPath;
-        stubs['./../templates/map-marker-list-modal.hbs'] = mapMarkerListModalTemplatePath;
-        stubs['./../templates/_mapTable.hbs'] = mapTableTemplatePath;
+        stubs = {
+            './add-active-class-to-row-lists': addActiveClassToRowListsPath,
+            './../horizontal-menu/change-background-image': changeBackgroundImagePath,
+            './initialize-pagination-styles': initializePaginationStylesPath,
+            './paginate': paginatePath,
+            './show-map-marker-list-modal': showMapMarkerListModalPath,
+            './update-inner-grid': updateInnerGridPath,
+            './../marker-list-modal/template.hbs': mapMarkerListModalTemplatePath,
+            './../marker-table/template.hbs': mapTableTemplatePath
+        };
 
         initialize = proxyquire.noCallThru().load(require.resolve('./initialize'), stubs);
 

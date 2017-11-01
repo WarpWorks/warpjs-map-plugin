@@ -1,6 +1,6 @@
 {{#partial "content"}}
     <div id="map-marker-modal-container">
-        {{> ./map-marker-list-modal}}
+        {{> marker-list-modal/template}}
     </div>
     <div class="map-header no-padding container-fluid">
         <div class="header-list row">
@@ -10,7 +10,7 @@
                     <span class="pagination-previous glyphicon glyphicon-chevron-left hidden-xs hidden-sm hidden-md hidden-lg"></span>
                 </div>
                 <div class="col-xs-10 header-list-items">
-                    {{> ./_horizontalButtonGroup formattedMap elements=formattedMap.columns}}
+                    {{> horizontal-menu/template formattedMap elements=formattedMap.columns}}
                 </div>
                 <div class="col-xs-1 header-list-chevron pull-right">
                     <span class="pagination-next glyphicon glyphicon-chevron-right hidden-xs hidden-sm hidden-md hidden-lg"></span>
@@ -33,17 +33,17 @@
         <div class="row">
             <div class="col-xs-1 left-right-margin" />
             <div class="col-sm-2 hidden-xs row-list">
-                {{> ./_verticalButtonGroup formattedMap elements=formattedMap.rows selectableLinks=selectableLinks}}
+                {{> vertical-menu/template formattedMap elements=formattedMap.rows selectableLinks=selectableLinks}}
             </div>
             <div class="col-xs-10 hidden-sm hidden-md hidden-lg row-list">
                 <span class="pagination-previous glyphicon glyphicon-chevron-left hidden-xs hidden-sm hidden-md hidden-lg"></span>
-                {{> ./_horizontalButtonGroup formattedMap elements=formattedMap.rows}}
+                {{> horizontal-menu/template formattedMap elements=formattedMap.rows}}
                 <span class="pagination-next glyphicon glyphicon-chevron-right hidden-xs hidden-sm hidden-md hidden-lg"></span>
             </div>
             <div class="col-xs-1 hidden-sm hidden-md hidden-lg left-right-margin" />
             <div class="col-xs-1 hidden-sm hidden-md hidden-lg left-right-margin" style="clear:both;" />
             <div class="col-xs-10 col-sm-7 map-table-container" id="map-table">
-                {{> ./_mapTable formattedMap}}
+                {{> marker-table/template formattedMap}}
             </div>
             <div class="col-xs-1 left-right-margin" />
         </div>

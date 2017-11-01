@@ -51,7 +51,7 @@ function error() {
     return '<div class="err">Error</div>';
 }
 
-describe('client/map/lib/utilities/select-row-type', () => {
+describe('client/utilities/select-row-type', () => {
     let stubs;
     let selectRowType;
 
@@ -84,12 +84,13 @@ describe('client/map/lib/utilities/select-row-type', () => {
         indexTemplatePath = () => success();
         errorTemplatePath = () => error();
 
-        stubs = {};
-        stubs['./initialize'] = initializePath;
-        stubs['./map-utils'] = mapUtilsPath;
-        stubs['./paginate'] = paginatePath;
-        stubs['./../templates/index.hbs'] = indexTemplatePath;
-        stubs['./../templates/_error.hbs'] = errorTemplatePath;
+        stubs = {
+            './initialize': initializePath,
+            './map-utils': mapUtilsPath,
+            './paginate': paginatePath,
+            './../template.hbs': indexTemplatePath,
+            './../error.hbs': errorTemplatePath
+        };
     });
 
     afterEach(() => {

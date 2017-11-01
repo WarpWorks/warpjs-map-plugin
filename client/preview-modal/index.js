@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const warpjsUtils = require('@warp-works/warpjs-utils');
 
-const previewTemplate = require('./../templates/map-marker-modal-preview.hbs');
+const previewTemplate = require('./../preview-modal/template.hbs');
 
 class MapMarkerModalPreview {
     constructor() {
