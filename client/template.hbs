@@ -1,53 +1,24 @@
 {{#partial "content"}}
-    <div id="map-marker-modal-container">
-        {{> marker-list-modal/template}}
+  <div id="map-marker-modal-container">
+    {{> marker-list-modal/template}}
+  </div>
+
+  <div class="map-header no-padding container-fluid">
+    {{> primary-navigation/template}}
+  </div>
+
+  <div class="map-body no-padding container-fluid">
+    <div class="row">
+      <div class="col-xs-1 left-right-margin" />
+      {{> secondary-navigation/template}}
+      <div class="col-xs-1 hidden-sm hidden-md hidden-lg left-right-margin" />
+      <div class="col-xs-1 hidden-sm hidden-md hidden-lg left-right-margin" style="clear:both;" />
+      <div class="col-xs-10 col-sm-7 map-table-container" id="map-table">
+        {{> loading}}
+      </div>
+      <div class="col-xs-1 left-right-margin" />
     </div>
-    <div class="map-header no-padding container-fluid">
-        <div class="header-list row">
-            <div class="col-xs-1 left-right-margin" />
-            <div class="col-xs-10 header-list-container column-list">
-                <div class="col-xs-1 header-list-chevron pull-left">
-                    <span class="pagination-previous glyphicon glyphicon-chevron-left hidden-xs hidden-sm hidden-md hidden-lg"></span>
-                </div>
-                <div class="col-xs-10 header-list-items">
-                    {{> horizontal-menu/template formattedMap elements=formattedMap.columns}}
-                </div>
-                <div class="col-xs-1 header-list-chevron pull-right">
-                    <span class="pagination-next glyphicon glyphicon-chevron-right hidden-xs hidden-sm hidden-md hidden-lg"></span>
-                </div>
-            </div>
-            <div class="col-xs-1 left-right-margin" />
-        </div>
-        <div class="header-spacer row" />
-        <div class="header-label row">
-            <div class="col-xs-1 no-padding label-bg left-right-margin" />
-            <div class="col-xs-5 col-sm-4 col-md-4 col-lg-3 label-bg label-text bold large-font" />
-            <div class="col-xs-1 label-flag-col">
-                <div class="label-flag" />
-            </div>
-            <div class="col-xs-4 col-sm-5 col-md-6" />
-            <div class="col-xs-1 left-right-margin" />
-        </div>
-    </div>
-    <div class="map-body no-padding container-fluid">
-        <div class="row">
-            <div class="col-xs-1 left-right-margin" />
-            <div class="col-sm-2 hidden-xs row-list">
-                {{> vertical-menu/template formattedMap elements=formattedMap.rows selectableLinks=selectableLinks}}
-            </div>
-            <div class="col-xs-10 hidden-sm hidden-md hidden-lg row-list">
-                <span class="pagination-previous glyphicon glyphicon-chevron-left hidden-xs hidden-sm hidden-md hidden-lg"></span>
-                {{> horizontal-menu/template formattedMap elements=formattedMap.rows}}
-                <span class="pagination-next glyphicon glyphicon-chevron-right hidden-xs hidden-sm hidden-md hidden-lg"></span>
-            </div>
-            <div class="col-xs-1 hidden-sm hidden-md hidden-lg left-right-margin" />
-            <div class="col-xs-1 hidden-sm hidden-md hidden-lg left-right-margin" style="clear:both;" />
-            <div class="col-xs-10 col-sm-7 map-table-container" id="map-table">
-                {{> marker-table/template formattedMap}}
-            </div>
-            <div class="col-xs-1 left-right-margin" />
-        </div>
-    </div>
+  </div>
 {{/partial}}
 
 {{> page-portal}}

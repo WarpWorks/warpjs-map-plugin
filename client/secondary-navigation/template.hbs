@@ -1,0 +1,8 @@
+<div class="col-sm-2 hidden-xs row-list">
+  {{> ../vertical-menu/template formattedMap elements=formattedMap.rows selectableLinks=selectableLinks}}
+</div>
+<div class="col-xs-10 hidden-sm hidden-md hidden-lg row-list">
+  <span class="pagination-previous glyphicon glyphicon-chevron-left hidden-xs hidden-sm hidden-md hidden-lg"></span>
+  {{> ../horizontal-menu/template formattedMap elements=formattedMap.rows}}
+  <span class="pagination-next glyphicon glyphicon-chevron-right hidden-xs hidden-sm hidden-md hidden-lg"></span>
+</div>

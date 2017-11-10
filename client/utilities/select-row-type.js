@@ -38,7 +38,7 @@ function selectRowType($, mapUtilityClass, paginationSettings, clickPosition, ma
                     .on(
                         "click",
                         constants.SELECTABLE_LINK_ITEM,
-                        selectRowType.bind(null, $, mapUtilityClass, paginationSettings, clickPosition, mapMarkerModalPreview)
+                        (event) => selectRowType($, mapUtilityClass, paginationSettings, clickPosition, mapMarkerModalPreview, event)
                     );
 
                 const columnItemsList = $(constants.COLUMN_HORIZONTAL_GROUP).find(constants.LIST_ITEM);

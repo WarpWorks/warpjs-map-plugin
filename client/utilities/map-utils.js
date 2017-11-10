@@ -32,6 +32,8 @@ class MapUtils {
     }
 
     generateMapMatrix() {
+        console.log("generateMapMatrix(): _activeSubRows=", this._activeSubRows);
+
         const map = _.reduce(this._activeSubRows, (outerResult, rowValue, rowKey) => {
             const row = [];
             const rowFirstCell = {name: rowValue.name, href: rowValue.href};
@@ -52,15 +54,22 @@ class MapUtils {
             outerResult.push(_.concat(row, rowFirstCell, grid));
             return outerResult;
         }, []);
-        return map;
+
+        // Remove empty rows
+        const withoutEmptyRows = map.filter((row) => row.reduce(
+            (counter, column, index) => counter + (index ? column.length : 0),
+            0
+        ));
+
+        return withoutEmptyRows;
     };
 
     getFormattedData() {
         return {
             column: this._activeColumn,
             row: this._activeRow,
-            columns: this._cachedResponse.columns ? this._cachedResponse.columns : [],
-            rows: this._cachedResponse.rows ? this._cachedResponse.rows : [],
+            columns: this._cachedResponse.columns || [],
+            rows: this._cachedResponse.rows || [],
             mapMatrix: {
                 subColumnHeaders: this._activeSubColumns,
                 subRows: this.generateMapMatrix()

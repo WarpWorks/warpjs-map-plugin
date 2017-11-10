@@ -9,9 +9,10 @@ const updateInnerGrid = require('./update-inner-grid');
 const modalTemplate = require('./../marker-list-modal/template.hbs');
 const mapTableTemplate = require('./../marker-table/template.hbs');
 
+const arrowTypePrevious = "previous";
+const arrowTypeNext = "next";
+
 module.exports = ($, mapUtility, paginationSettings, clickPosition, activeColumnListItem, mapMarkerModalPreview) => {
-    const arrowTypePrevious = "previous";
-    const arrowTypeNext = "next";
     const columnItemsList = $(constants.COLUMN_HORIZONTAL_GROUP).find(constants.LIST_ITEM);
     const rowItemsList = $(constants.ROW_HORIZONTAL_GROUP).find(constants.LIST_ITEM);
 

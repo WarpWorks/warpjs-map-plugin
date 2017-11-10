@@ -4,6 +4,7 @@
   "description": "WarpJS map browser plugin",
   "main": "index.js",
   "scripts": {
+    "prepublish": "grunt",
     "coverage:integration": "nyc npm run -s test:integration",
     "coverage:unit": "nyc npm run -s test:unit",
     "coverage": "npm run -s coverage:unit",
@@ -64,7 +65,7 @@
     "jsdom-global": "3.0.2",
     "load-grunt-config": "0.19.2",
     "mocha": "4.0.1",
-    "nyc": "11.2.1",
+    "nyc": "11.3.0",
     "time-grunt": "1.4.0",
     "webpack": "2.7.0"
   },
