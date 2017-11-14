@@ -16,5 +16,6 @@ module.exports = {
     LIST_ITEM,
     MAP_HEADER,
     PAGINATION_NEXT: '.pagination-next',
+    SELECTED_CLASS: 'active-outer-button',
     TITLE: `${MAP_HEADER} .header-label .label-text`
 };

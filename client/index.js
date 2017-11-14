@@ -9,7 +9,9 @@ const warpjsUtils = require('@warp-works/warpjs-utils');
 // const selectRowType = require('./utilities/select-row-type');
 
 const errorTemplate = require('./error.hbs');
+const matrix = require('./matrix');
 const primaryNavigation = require('./primary-navigation');
+const secondaryNavigation = require('./secondary-navigation');
 const template = require('./template.hbs');
 
 (($) => $(document).ready(() => {
@@ -22,9 +24,9 @@ const template = require('./template.hbs');
             } else {
                 return Promise.resolve()
                     .then(() => placeholder.html(template(result.data)))
-                    .then(() => primaryNavigation.generateDom($, result.data.columns))
-                    .then(() => primaryNavigation.addListeners($))
-                    .then(() => primaryNavigation.clickFirst($))
+                    .then(() => matrix.init(result.data))
+                    .then(() => primaryNavigation($, result.data.columns))
+                    .then(() => secondaryNavigation($, result.data.rows))
                 ;
             }
         })

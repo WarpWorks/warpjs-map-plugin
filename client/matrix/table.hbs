@@ -1,0 +1,12 @@
+<table class="table table-borderless">
+  <thead class="map-table-header">
+    {{> row cols=matrix.[0]}}
+  </thead>
+  <tbody class="map-table-body">
+    {{#each matrix as |cols rowIndex|}}
+      {{#if rowIndex}}
+        {{> row cols=cols}}
+      {{/if}}
+    {{/each}}
+  </tbody>
+</table>

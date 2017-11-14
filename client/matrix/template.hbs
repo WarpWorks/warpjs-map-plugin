@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="map-table-title">
+    {{! FIXME }}
+    I3C Use Cases for
+    <a href="{{col.href}}">{{col.name}}</a>
+    /
+    <a href="{{row.href}}">{{row.name}}</a>
+  </div>
+
+  {{#if matrix}}
+    {{> table matrix=matrix}}
+  {{else}}
+    <div class="map-no-table text-warning bg-warning">
+      No data found for this combination.
+    </div>
+  {{/if}}
+
+</div>

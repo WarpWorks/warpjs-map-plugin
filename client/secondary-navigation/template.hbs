@@ -1,8 +1,22 @@
-<div class="col-sm-2 hidden-xs row-list">
-  {{> ../vertical-menu/template formattedMap elements=formattedMap.rows selectableLinks=selectableLinks}}
+<div class="col-md-2 hidden-xs hidden-sm row-list vertical-menu">
+  {{> types-dropdown selectableLinks=selectableLinks}}
+  <div class="outer-container vertical-list btn-group-vertical no-left-padding full-width navigation-list" role="group" aria-label=""></div>
 </div>
-<div class="col-xs-10 hidden-sm hidden-md hidden-lg row-list">
-  <span class="pagination-previous glyphicon glyphicon-chevron-left hidden-xs hidden-sm hidden-md hidden-lg"></span>
-  {{> ../horizontal-menu/template formattedMap elements=formattedMap.rows}}
-  <span class="pagination-next glyphicon glyphicon-chevron-right hidden-xs hidden-sm hidden-md hidden-lg"></span>
+<div class="col-xs-10 hidden-md hidden-lg row-list">
+  <div class="col-xs-6">
+  {{> types-dropdown selectableLinks=selectableLinks}}
+  </div>
+  <div class="col-xs-6">
+    <div class="col-xs-1">
+      <span class="pagination-previous glyphicon glyphicon-chevron-left hidden-xs hidden-sm hidden-md hidden-lg"></span>
+    </div>
+    <div class="col-xs-10">
+      {{> ../horizontal-menu/template elements=formattedMap.rows}}
+    </div>
+    <div class="col-xs-1">
+      <span class="pagination-next glyphicon glyphicon-chevron-right hidden-xs hidden-sm hidden-md hidden-lg"></span>
+    </div>
+  </div>
 </div>
+<div class="col-xs-1 hidden-md hidden-lg left-right-margin" />
+<div class="col-xs-1 hidden-md hidden-lg left-right-margin" style="clear:both;" />

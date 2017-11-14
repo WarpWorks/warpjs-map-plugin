@@ -1,8 +1,6 @@
 const constants = require('./constants');
 
-const className = 'active-outer-button';
-
 module.exports = ($, element) => {
-    $(constants.LIST_ITEM, constants.LIST_ITEMS).removeClass(className);
-    $(element).addClass(className);
+    $(constants.LIST_ITEM, constants.LIST_ITEMS).removeClass(constants.SELECTED_CLASS);
+    $(element).addClass(constants.SELECTED_CLASS);
 };

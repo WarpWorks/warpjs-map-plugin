@@ -1,5 +1,4 @@
 const addActiveClassToRowLists = require('./add-active-class-to-row-lists');
-const changeBackGroundImage = require('./../horizontal-menu/change-background-image');
 const constants = require('./../constants');
 const initializePaginationStyles = require('./initialize-pagination-styles');
 const paginate = require('./paginate');
@@ -20,7 +19,6 @@ module.exports = ($, mapUtility, paginationSettings, clickPosition, activeColumn
 
     $(activeColumnListItem).addClass(constants.ACTIVE_BUTTON_CLASS_NAME);
     $(constants.MAP_IMAGE_LABEL_TEXT).text($(activeColumnListItem).text());
-    changeBackGroundImage($, constants.MAP_SECTION_HEAD, $(activeColumnListItem).data('bgImgUrl'));
     addActiveClassToRowLists($, constants.ROW_CONTAINER, constants.LIST_ITEM, 0, constants.ACTIVE_BUTTON_CLASS_NAME);
     initializePaginationStyles($, columnItemsList, constants.COLUMN_LIST_PREVIOUS_ARROW, constants.COLUMN_LIST_NEXT_ARROW, paginationSettings);
     initializePaginationStyles($, rowItemsList, constants.ROW_LIST_PREVIOUS_ARROW, constants.ROW_LIST_NEXT_ARROW, paginationSettings);

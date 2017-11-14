@@ -29,7 +29,7 @@ function embedMapMarker(resource, req, mapMarker, id) {
         });
 
         const embeddedResource = warpjsUtils.createResource(url, mapMarker);
-        embeddedResource.link("preview", RoutesInfo.expand('entity', {type: mapMarker.W2Type, id: mapMarker.id, preview: true}));
+        embeddedResource.link("preview", RoutesInfo.expand('W2:portal:preview', {type: mapMarker.W2Type, id: mapMarker.id}));
         resource.embed('mapMarkers', embeddedResource);
     }
 }
