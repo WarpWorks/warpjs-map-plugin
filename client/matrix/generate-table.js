@@ -21,12 +21,6 @@ module.exports = ($, colId, rowId) => {
     const activeSubCols = _.values(cache.getActiveAggregations(subCols, intersection));
     const activeSubRows = _.values(cache.getActiveAggregations(subRows, intersection));
 
-    console.log("subCols=", subCols);
-    console.log("subRows=", subRows);
-    console.log("intersection=", intersection);
-    console.log("activeSubCols=", activeSubCols);
-    console.log("activeSubRows=", activeSubRows);
-
     if (intersection.length) {
         const table = [];
 

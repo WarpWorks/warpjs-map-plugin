@@ -3,8 +3,6 @@ const ACTIVE_BUTTON_CLASS_NAME = "active-outer-button";
 const COLUMN_CONTAINER = ".column-list";
 const COLUMN_HORIZONTAL_GROUP = ".column-list .horizontal-list";
 const COLUMN_LIST_ITEM = ".column-list .list-item";
-const COLUMN_LIST_NEXT_ARROW = ".column-list .pagination-next";
-const COLUMN_LIST_PREVIOUS_ARROW = ".column-list .pagination-previous";
 
 const HORIZONTAL_GROUP_CONTAINER = ".outer-container";
 
@@ -31,8 +29,6 @@ module.exports = {
     COLUMN_CONTAINER,
     COLUMN_HORIZONTAL_GROUP,
     COLUMN_LIST_ITEM,
-    COLUMN_LIST_NEXT_ARROW,
-    COLUMN_LIST_PREVIOUS_ARROW,
     HORIZONTAL_GROUP_CONTAINER,
     MAP_MARKER_MODAL_CONTAINER,
     MAP_MARKER_MODAL,

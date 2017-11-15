@@ -19,7 +19,6 @@ module.exports = {
             const col = primarySelection($);
             const row = secondarySelection($);
             const content = generateContent($, col, row);
-            console.log("content=", content);
 
             $('#map-table').html(template(content));
         } else {

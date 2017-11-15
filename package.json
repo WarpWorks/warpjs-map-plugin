@@ -33,7 +33,7 @@
   "homepage": "https://github.com/WarpWorks/warpjs-map-plugin#readme",
   "peerDependencies": {
     "@quoin/expressjs-routes-info": ">=0.1.10",
-    "@warp-works/warpjs-utils": ">=0.2.2",
+    "@warp-works/warpjs-utils": ">=0.2.6",
     "express": ">=4.0.0"
   },
   "devDependencies": {
@@ -45,8 +45,8 @@
     "babel-loader": "7.1.2",
     "babel-preset-env": "1.6.1",
     "babel-preset-stage-0": "6.24.1",
-    "eslint": "4.10.0",
-    "eslint-plugin-html": "3.2.2",
+    "eslint": "4.11.0",
+    "eslint-plugin-html": "4.0.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-json": "1.2.0",
     "eslint-plugin-node": "5.2.1",
