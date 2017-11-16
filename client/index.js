@@ -20,6 +20,7 @@ const template = require('./template.hbs');
                     .then(() => matrix.init(result.data))
                     .then(() => primaryNavigation($, result.data.columns))
                     .then(() => secondaryNavigation($, result.data.rows))
+                    .then(() => matrix.addListeners($))
                 ;
             }
         })

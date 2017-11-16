@@ -220,37 +220,20 @@
 
 .map-marker-modal-list {
     .map-marker-modal-item {
+        margin-top: 10px;
+        padding: 3px;
+
         &:nth-child(even){
             background: @container-bg-color;
         }
-        .toggler {
-            cursor: pointer;
 
-            &.collapsed {
-                & + .map-marker-preview-container {
-                    display: none;
-                }
-
-                .expand-preview {
-                    display: inline;
-                }
-
-                .collapse-preview {
-                    display: none;
-                }
-
-                .map-marker-preview-container {
-                    display: none;
-                }
-            }
-
-            .expand-preview {
-                display: none;
-            }
-
+        .map-marker-item-title {
+            font-size: 120%;
         }
 
         .map-marker-preview-container {
+            padding: 3px 0px;
+
             .map-marker-preview-content {
                 overflow: hidden;
                 display: -webkit-box;

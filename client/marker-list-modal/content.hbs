@@ -1,0 +1,42 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <div class="modal-title">
+        Use Cases matching
+        <a href="{{col.href}}">{{col.name}}</a>
+        /
+        <a href="{{row.href}}">{{row.name}}</a>
+      </div>
+    </div>
+
+    <div class="map-marker-modal-list modal-body">
+      {{#each items as |mapMarker index|}}
+        <div class="map-marker-modal-item">
+          <div class="map-marker-item-title">
+            <a
+                class="map-marker-link"
+                data-toggle="tooltip"
+                href="{{mapMarker.href}}"
+                title="{{mapMarker.name}}"
+                >
+                {{mapMarker.name}}
+            </a>
+          </div>
+          <div class="map-marker-preview-container">
+            {{#if content}}
+              <div class="map-marker-preview-content">{{{content}}}</div>
+            {{else if error}}
+              <div class="bg-danger text-danger danger">Unable to fetch preview.</div>
+            {{else}}
+              {{> ../loading}}
+            {{/if}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>

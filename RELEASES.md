@@ -1,5 +1,9 @@
 # Releases
 
+## 1.2.0 - 2017-11-16
+
+- Refactored front-end code to hide empty columns and rows.
+
 ## 0.2.1 - 2017-10-11
 
 - Fixed to use templates in warpjs-utils.
