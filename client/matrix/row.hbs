@@ -1,0 +1,36 @@
+<tr>
+  {{#each cols as |cell|}}
+    {{#if cell.isHeader}}
+      {{#if cell.isEmpty}}
+        <th></th>
+      {{else}}
+        <th><a href="{{cell.href}}">{{cell.name}}</a></th>
+      {{/if}}
+    {{else if cell.isEmpty}}
+      <td></td>
+    {{else}}
+      <td class="map-marker-cell"
+          data-warpjs-col-href="{{cell.col.href}}"
+          data-warpjs-col-name="{{cell.col.name}}"
+          data-warpjs-row-href="{{cell.row.href}}"
+          data-warpjs-row-name="{{cell.row.name}}"
+          >
+        <div class="map-marker-pin">
+          {{#if cell.isMulti}}
+            <span class="map-marker map-marker-shift glyphicon glyphicon-map-marker"></span>
+            <sup class="map-marker map-marker-counter">{{cell.count}}</sup>
+          {{else}}
+            <span class="map-marker glyphicon glyphicon-map-marker"></span>
+          {{/if}}
+          {{#each cell.markers as |marker|}}
+            <span style="display:none" class="marker-item"
+                data-warpjs-name="{{marker.name}}"
+                data-warpjs-href="{{marker._links.self.href}}"
+                data-warpjs-preview-url="{{marker._links.preview.href}}"
+                ></span>
+          {{/each}}
+        </div>
+      </td>
+    {{/if}}
+  {{/each}}
+</tr>

@@ -1,48 +1,34 @@
+const Promise = require('bluebird');
 const warpjsUtils = require('@warp-works/warpjs-utils');
 
-const ClickPosition = require('./utilities/click-position');
-const constants = require('./utilities/constants');
-const MapMarkerModalPreview = require('./utilities/map-marker-modal-preview');
-const initialize = require('./utilities/initialize');
-const MapUtils = require('./utilities/map-utils');
-const selectRowType = require('./utilities/select-row-type');
+const errorTemplate = require('./error.hbs');
+const matrix = require('./matrix');
+const primaryNavigation = require('./primary-navigation');
+const secondaryNavigation = require('./secondary-navigation');
+const template = require('./template.hbs');
 
-const template = require('./templates/index.hbs');
-const errorTemplate = require('./templates/_error.hbs');
+(($) => $(document).ready(() => {
+    const placeholder = $('#warpjs-content-placeholder');
 
-(($) => {
-    $(document).ready(() => {
-        warpjsUtils.getCurrentPageHAL($)
-            .then((result) => {
-                if (result.error) {
-                    $('#warpjs-content-placeholder').html(errorTemplate(result.data));
-                } else {
-                    const mapUtility = new MapUtils(result.data);
-                    const paginationSettings = result.data.paginationSettings;
-                    const columnClickPosition = new ClickPosition(0);
-                    const mapMarkerModalPreview = new MapMarkerModalPreview();
-                    const columnListFirstChild = `${constants.COLUMN_LIST_ITEM}:first-child`;
-
-                    result.data.formattedMap = mapUtility.getFormattedData();
-
-                    $('#warpjs-content-placeholder').html(template(result.data));
-
-                    initialize(
-                        $,
-                        mapUtility,
-                        paginationSettings,
-                        columnClickPosition,
-                        $(columnListFirstChild).get(),
-                        mapMarkerModalPreview
-                    );
-
-                    $(constants.MAP_SECTION_BODY)
-                        .on(
-                            "click",
-                            constants.SELECTABLE_LINK_ITEM,
-                            selectRowType.bind(null, $, mapUtility, paginationSettings, columnClickPosition, mapMarkerModalPreview)
-                        );
-                }
-            });
-    });
-})(jQuery);
+    return warpjsUtils.getCurrentPageHAL($)
+        .then((result) => {
+            if (result.error) {
+                placeholder.html(errorTemplate(result.data));
+            } else {
+                return Promise.resolve()
+                    .then(() => placeholder.html(template(result.data)))
+                    .then(() => matrix.init(result.data))
+                    .then(() => primaryNavigation($, result.data.columns))
+                    .then(() => secondaryNavigation($, result.data.rows))
+                    .then(() => matrix.addListeners($))
+                ;
+            }
+        })
+        .catch((err) => {
+            placeholder.html(errorTemplate({
+                message: err.message,
+                details: err.stack
+            }));
+        })
+    ;
+}))(jQuery);
