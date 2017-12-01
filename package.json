@@ -1,6 +1,6 @@
 {
   "name": "@warp-works/warpjs-map-plugin",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "WarpJS map browser plugin",
   "main": "index.js",
   "scripts": {
@@ -45,8 +45,8 @@
     "babel-loader": "7.1.2",
     "babel-preset-env": "1.6.1",
     "babel-preset-stage-0": "6.24.1",
-    "eslint": "4.11.0",
-    "eslint-plugin-html": "4.0.0",
+    "eslint": "4.12.x",
+    "eslint-plugin-html": "4.0.x",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-json": "1.2.0",
     "eslint-plugin-node": "5.2.1",
