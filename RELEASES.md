@@ -1,5 +1,9 @@
 # Releases
 
+## 1.2.1 - 2017-12-01
+
+- Updated for new header with search.
+
 ## 1.2.0 - 2017-11-16
 
 - Refactored front-end code to hide empty columns and rows.

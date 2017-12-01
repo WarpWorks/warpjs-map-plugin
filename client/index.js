@@ -21,6 +21,7 @@ const template = require('./template.hbs');
                     .then(() => primaryNavigation($, result.data.columns))
                     .then(() => secondaryNavigation($, result.data.rows))
                     .then(() => matrix.addListeners($))
+                    .then(() => warpjsUtils.documentReady($))
                 ;
             }
         })
