@@ -25,13 +25,17 @@ module.exports = {
                 href: $(element).data('warpjsRowHref'),
                 name: $(element).data('warpjsRowName')
             },
-            items
+            items,
+            loadingItems: {
+                index: 1,
+                total: items.length
+            }
         };
 
         modal.html(contentTemplate(data));
         modal.modal('show');
 
-        items.forEach((item) => {
+        Promise.each(items, (item, index, total) => {
             return Promise.resolve()
                 .then(() => warpjsUtils.proxy.get($, item.previewUrl))
                 .then((res) => {
@@ -40,7 +44,18 @@ module.exports = {
                 .catch(() => {
                     item.error = true;
                 })
-                .finally(() => modal.html(contentTemplate(data)))
+                .finally(() => {
+                    const loadingItems = {
+                        index: index + 2,
+                        total
+                    };
+                    if ((index + 1) === total) {
+                        delete data.loadingItems;
+                    } else {
+                        data.loadingItems = loadingItems;
+                    }
+                    modal.html(contentTemplate(data));
+                })
             ;
         });
     },

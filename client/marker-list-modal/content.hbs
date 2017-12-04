@@ -11,6 +11,12 @@
     </div>
 
     <div class="map-marker-modal-list modal-body">
+      {{#if loadingItems}}
+        <div class="text-warning">
+          Loading details {{loadingItems.index}}/{{loadingItems.total}}...
+        </div>
+      {{/if}}
+
       {{#each items as |mapMarker index|}}
         <div class="map-marker-modal-item">
           <div class="map-marker-item-title">

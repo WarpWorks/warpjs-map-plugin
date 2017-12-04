@@ -1,5 +1,9 @@
 # Releases
 
+## 1.2.3 - 2017-12-03
+
+- Make marker modal list preview load serial to avoid overload server.
+
 ## 1.2.2 - 2017-12-03
 
 - Updated label to 'Loading details...'
