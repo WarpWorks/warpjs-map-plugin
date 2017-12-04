@@ -1,5 +1,9 @@
 # Releases
 
+## 1.2.2 - 2017-12-03
+
+- Updated label to 'Loading details...'
+
 ## 1.2.1 - 2017-12-01
 
 - Updated for new header with search.
