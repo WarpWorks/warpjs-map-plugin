@@ -1,5 +1,9 @@
 # Releases
 
+## 1.2.4 - 2017-12-27
+
+- Add UI feedback for error.
+
 ## 1.2.3 - 2017-12-03
 
 - Make marker modal list preview load serial to avoid overload server.

@@ -8,10 +8,12 @@ const secondaryNavigation = require('./secondary-navigation');
 const template = require('./template.hbs');
 
 (($) => $(document).ready(() => {
+    const loader = warpjsUtils.toast.loading($, "Page is loading");
     const placeholder = $('#warpjs-content-placeholder');
 
     return warpjsUtils.getCurrentPageHAL($)
         .then((result) => {
+            warpjsUtils.toast.close($, loader);
             if (result.error) {
                 placeholder.html(errorTemplate(result.data));
             } else {
@@ -26,6 +28,7 @@ const template = require('./template.hbs');
             }
         })
         .catch((err) => {
+            warpjsUtils.toast.close($, loader);
             placeholder.html(errorTemplate({
                 message: err.message,
                 details: err.stack

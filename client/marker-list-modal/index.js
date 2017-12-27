@@ -35,29 +35,27 @@ module.exports = {
         modal.html(contentTemplate(data));
         modal.modal('show');
 
-        Promise.each(items, (item, index, total) => {
-            return Promise.resolve()
-                .then(() => warpjsUtils.proxy.get($, item.previewUrl))
-                .then((res) => {
-                    item.content = res.content;
-                })
-                .catch(() => {
-                    item.error = true;
-                })
-                .finally(() => {
-                    const loadingItems = {
-                        index: index + 2,
-                        total
-                    };
-                    if ((index + 1) === total) {
-                        delete data.loadingItems;
-                    } else {
-                        data.loadingItems = loadingItems;
-                    }
-                    modal.html(contentTemplate(data));
-                })
-            ;
-        });
+        return Promise.each(items, (item, index, total) => Promise.resolve()
+            .then(() => warpjsUtils.proxy.get($, item.previewUrl))
+            .then((res) => {
+                item.content = res.content;
+            })
+            .catch(() => {
+                item.error = true;
+            })
+            .finally(() => {
+                const loadingItems = {
+                    index: index + 2,
+                    total
+                };
+                if ((index + 1) === total) {
+                    delete data.loadingItems;
+                } else {
+                    data.loadingItems = loadingItems;
+                }
+                modal.html(contentTemplate(data));
+            })
+        );
     },
 
     hide() {

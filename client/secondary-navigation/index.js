@@ -20,7 +20,8 @@ module.exports = ($, elements) => {
 
     // When a type is selected.
     $(constants.CONTAINER).on('click', constants.TYPE_ITEMS, function(e) {
-        e.preventDefault(); // Don't want location href to change.
+        // Don't want location href to change.
+        e.preventDefault();
 
         return Promise.resolve()
             .then(() => $(constants.MATRIX_CONTAINER).html(loadingTemplate()))
@@ -32,7 +33,8 @@ module.exports = ($, elements) => {
                 $(constants.FIRST_CHILD, constants.CONTAINER).click();
             })
             .catch((err) => {
-                console.log("TODO: give UI error feedback:", err);
+                $(constants.MATRIX_CONTAINER).html(`<div class="text-danger bg-danger">Error getting data from server.</div>`);
+                console.log("Error details:", err);
             })
         ;
     });

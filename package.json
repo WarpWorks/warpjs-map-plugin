@@ -1,10 +1,10 @@
 {
   "name": "@warp-works/warpjs-map-plugin",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "WarpJS map browser plugin",
   "main": "index.js",
   "scripts": {
-    "prepublish": "grunt",
+    "prepublish": "grunt && npm test",
     "coverage:integration": "nyc npm run -s test:integration",
     "coverage:unit": "nyc npm run -s test:unit",
     "coverage": "npm run -s coverage:unit",
@@ -33,7 +33,7 @@
   "homepage": "https://github.com/WarpWorks/warpjs-map-plugin#readme",
   "peerDependencies": {
     "@quoin/expressjs-routes-info": ">=0.1.10",
-    "@warp-works/warpjs-utils": ">=0.2.6",
+    "@warp-works/warpjs-utils": ">=1.2.6",
     "express": ">=4.0.0"
   },
   "devDependencies": {
@@ -45,7 +45,7 @@
     "babel-loader": "7.1.2",
     "babel-preset-env": "1.6.1",
     "babel-preset-stage-0": "6.24.1",
-    "eslint": "4.12.x",
+    "eslint": "4.14.x",
     "eslint-plugin-html": "4.0.x",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-json": "1.2.0",
@@ -61,11 +61,11 @@
     "handlebars": "4.0.11",
     "handlebars-loader": "1.6.0",
     "jquery": "3.2.1",
-    "jsdom": "11.3.0",
+    "jsdom": "11.5.1",
     "jsdom-global": "3.0.2",
     "load-grunt-config": "0.19.2",
     "mocha": "4.0.1",
-    "nyc": "11.3.0",
+    "nyc": "11.4.x",
     "time-grunt": "1.4.0",
     "webpack": "2.7.0"
   },
