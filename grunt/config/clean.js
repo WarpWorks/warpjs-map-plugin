@@ -1,3 +1,5 @@
+const packageJson = require('./../../package.json');
+
 module.exports = {
     assets: {
         src: [
@@ -6,7 +8,13 @@ module.exports = {
     },
     test: {
         src: [
+            '.nyc_output',
             'reports'
+        ]
+    },
+    pack: {
+        src: [
+            `${packageJson.name.replace('@', '').replace('/', '-')}-*.tgz`
         ]
     }
 };

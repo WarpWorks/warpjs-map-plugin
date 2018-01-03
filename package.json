@@ -1,6 +1,6 @@
 {
   "name": "@warp-works/warpjs-map-plugin",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "WarpJS map browser plugin",
   "main": "index.js",
   "scripts": {
@@ -32,13 +32,13 @@
   },
   "homepage": "https://github.com/WarpWorks/warpjs-map-plugin#readme",
   "peerDependencies": {
-    "@quoin/expressjs-routes-info": ">=0.1.10",
+    "@quoin/expressjs-routes-info": ">=0.2.0",
     "@warp-works/warpjs-utils": ">=1.2.6",
     "express": ">=4.0.0"
   },
   "devDependencies": {
     "@quoin/eslint-config-quoin": "latest",
-    "@quoin/expressjs-routes-info": "latest",
+    "@quoin/expressjs-routes-info": "0.2.x",
     "@quoin/node-test-helpers": "0.2.x",
     "@warp-works/warpjs-utils": "latest",
     "babel-core": "6.26.0",
@@ -64,7 +64,7 @@
     "jsdom": "11.5.1",
     "jsdom-global": "3.0.2",
     "load-grunt-config": "0.19.2",
-    "mocha": "4.0.1",
+    "mocha": "4.1.x",
     "nyc": "11.4.x",
     "time-grunt": "1.4.0",
     "webpack": "2.7.0"

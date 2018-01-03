@@ -1,7 +1,8 @@
-module.exports = (dbConfig, warpCore, colType, rowType) => {
-    const domain = warpCore.getDomainByName(dbConfig.domainName);
+const Promise = require('bluebird');
 
-    return {
+module.exports = (dbConfig, warpCore, colType, rowType) => Promise.resolve()
+    .then(() => warpCore.getDomainByName(dbConfig.domainName))
+    .then((domain) => ({
         mapMarker: [domain.getEntityByName(dbConfig.mapMarkerType)],
 
         domain,
@@ -14,5 +15,5 @@ module.exports = (dbConfig, warpCore, colType, rowType) => {
         mapTypes: dbConfig.mapTypes,
         columnParam: colType,
         rowParam: rowType
-    };
-};
+    }))
+;

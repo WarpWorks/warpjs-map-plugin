@@ -9,12 +9,11 @@ const transformDocument = require('./transform-document');
 
 function getData(dbConfig, warpCore, Persistence, column, row) {
     if (column && row && column !== row) {
-        const persistenceConfig = generatePersistenceConfig(dbConfig, warpCore, column, row);
-
         const persistence = new Persistence(dbConfig.persistence.host, dbConfig.persistence.name);
 
         return Promise.resolve()
-            .then(() => generatePayload(persistence, persistenceConfig))
+            .then(() => generatePersistenceConfig(dbConfig, warpCore, column, row))
+            .then((persistenceConfig) => generatePayload(persistence, persistenceConfig))
             .then((generatedPayload) => {
                 generatedPayload.columns = generatedPayload.columns.map(transformDocument).sort(byPositionThenName);
                 generatedPayload.rows = generatedPayload.rows.map(transformDocument).sort(byPositionThenName);
