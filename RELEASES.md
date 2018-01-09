@@ -1,5 +1,10 @@
 # Releases
 
+## 1.2.6 - 2018-01-08
+
+- `.getDomainByName(persistence, domainName)`.
+- Assets name with package's name and version.
+
 ## 1.2.5 - 2018-01-03
 
 - Updated .getDomainByName().

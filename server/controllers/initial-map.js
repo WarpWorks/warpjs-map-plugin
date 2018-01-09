@@ -1,5 +1,6 @@
 const warpjsUtils = require('@warp-works/warpjs-utils');
 
+const constants = require('./../constants');
 const getMapData = require('./get-map-data');
 
 module.exports = (config, warpCore, Persistence, req, res) => {
@@ -7,10 +8,9 @@ module.exports = (config, warpCore, Persistence, req, res) => {
         html: () => {
             warpjsUtils.sendIndex(res, 'Map',
                 [
-                    `${req.app.get('base-url')}/assets/vendor.min.js`,
-                    `${req.app.get('base-url')}/assets/map.min.js`
+                    `${req.app.get('base-url')}/assets/${constants.assets.js}`
                 ],
-                `${req.app.get('base-url')}/assets/style.min.css`
+                `${req.app.get('base-url')}/assets/${constants.assets.css}`
             );
         },
         [warpjsUtils.constants.HAL_CONTENT_TYPE]: () => {

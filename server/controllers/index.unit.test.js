@@ -2,6 +2,7 @@ const _ = require('lodash');
 const testHelpers = require('@quoin/node-test-helpers');
 const warpjsUtils = require('@warp-works/warpjs-utils');
 
+const constants = require('./../constants');
 const controllers = require('./index');
 
 const expect = testHelpers.expect;
@@ -65,10 +66,9 @@ describe("server/map/controllers", () => {
                 expect(res._getRenderData()).to.deep.equal({
                     title: 'Map',
                     bundles: [
-                        'base-url/assets/vendor.min.js',
-                        'base-url/assets/map.min.js'
+                        `base-url/assets/${constants.assets.js}`
                     ],
-                    cssFile: 'base-url/assets/style.min.css',
+                    cssFile: `base-url/assets/${constants.assets.css}`,
                     baseUrl: 'base-url',
                     staticUrl: 'static-url'
                 });

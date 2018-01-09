@@ -1,3 +1,5 @@
+const constants = require('./../../server/constants');
+
 module.exports = {
     default: {
         options: {
@@ -5,7 +7,7 @@ module.exports = {
         },
         files: [{
             src: 'client/style.less',
-            dest: 'assets/style.min.css'
+            dest: `assets/${constants.assets.css}`
         }]
     }
 };

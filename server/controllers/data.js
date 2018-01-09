@@ -12,7 +12,7 @@ function getData(dbConfig, warpCore, Persistence, column, row) {
         const persistence = new Persistence(dbConfig.persistence.host, dbConfig.persistence.name);
 
         return Promise.resolve()
-            .then(() => generatePersistenceConfig(dbConfig, warpCore, column, row))
+            .then(() => generatePersistenceConfig(persistence, dbConfig, warpCore, column, row))
             .then((persistenceConfig) => generatePayload(persistence, persistenceConfig))
             .then((generatedPayload) => {
                 generatedPayload.columns = generatedPayload.columns.map(transformDocument).sort(byPositionThenName);
