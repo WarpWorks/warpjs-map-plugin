@@ -1,5 +1,9 @@
 # Releases
 
+## 1.2.7 - 2018-05-03
+
+- Removed persistence from `.getDomainByName()` call.
+
 ## 1.2.6 - 2018-01-08
 
 - `.getDomainByName(persistence, domainName)`.

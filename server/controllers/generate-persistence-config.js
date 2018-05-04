@@ -1,7 +1,7 @@
 const Promise = require('bluebird');
 
-module.exports = (persistence, dbConfig, warpCore, colType, rowType) => Promise.resolve()
-    .then(() => warpCore.getDomainByName(persistence, dbConfig.domainName))
+module.exports = (dbConfig, warpCore, colType, rowType) => Promise.resolve()
+    .then(() => warpCore.getDomainByName(dbConfig.domainName))
     .then((domain) => ({
         mapMarker: [domain.getEntityByName(dbConfig.mapMarkerType)],
 
