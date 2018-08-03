@@ -1,3 +1,5 @@
+const hbs = require('hbs');
+const hbsUtils = require('hbs-utils')(hbs);
 const express = require('express');
 const path = require('path');
 const warpjsUtils = require('@warp-works/warpjs-utils');
@@ -13,6 +15,16 @@ module.exports = (config, warpCore, Persistence, baseUrl, staticUrl) => {
 
     app.set('view engine', 'hbs');
     app.set('views', warpjsUtils.getHandlebarsViewsDir());
+
+    const handlebarsPartialsDir = warpjsUtils.getHandlebarsPartialsDir();
+    hbsUtils.registerWatchedPartials(
+        handlebarsPartialsDir,
+        {
+            precompile: true,
+            name: (template) => template.replace(/_/g, '-')
+        }
+    );
+
     app.set('base-url', baseUrl);
     app.set('static-url', staticUrl);
 

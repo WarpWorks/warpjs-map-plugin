@@ -1,5 +1,9 @@
 # Releases
 
+## 1.2.8 - 2018-08-03
+
+- Refactored for new warpjsUtils.sendPortalIndex().
+
 ## 1.2.7 - 2018-05-03
 
 - Removed persistence from `.getDomainByName()` call.

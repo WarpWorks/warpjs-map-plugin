@@ -62,16 +62,15 @@ describe("server/map/controllers", () => {
 
             setTimeout(() => {
                 expect(res._getStatusCode()).to.equal(200);
-                expect(res._getRenderView()).to.equal('index');
-                expect(res._getRenderData()).to.deep.equal({
-                    title: 'Map',
-                    bundles: [
-                        `base-url/assets/${constants.assets.js}`
-                    ],
-                    cssFile: `base-url/assets/${constants.assets.css}`,
-                    baseUrl: 'base-url',
-                    staticUrl: 'static-url'
-                });
+                expect(res._getRenderView()).to.equal('portal-index');
+
+                const renderData = res._getRenderData();
+
+                expect(renderData).has.property('title', 'Map');
+                expect(renderData).has.property('baseUrl', 'base-url');
+                expect(renderData).has.property('staticUrl', 'static-url');
+                expect(renderData).has.property('cssFile', `base-url/assets/${constants.assets.css}`);
+
                 done();
             }, 50);
         });
