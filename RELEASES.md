@@ -1,5 +1,9 @@
 # Releases
 
+## 1.2.9 - 2019-01-09
+
+- Update version of warpjs-utils.
+
 ## 1.2.8 - 2018-08-03
 
 - Refactored for new warpjsUtils.sendPortalIndex().

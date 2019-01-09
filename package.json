@@ -1,6 +1,6 @@
 {
   "name": "@warp-works/warpjs-map-plugin",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "WarpJS map browser plugin",
   "main": "index.js",
   "scripts": {
