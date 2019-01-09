@@ -41,7 +41,7 @@
     "@quoin/expressjs-routes-info": "0.2.x",
     "@quoin/node-test-helpers": "latest",
     "@warp-works/warpjs-plugins": "1.2",
-    "@warp-works/warpjs-utils": "release-1.2",
+    "@warp-works/warpjs-utils": "latest",
     "babel-core": "6.26.x",
     "babel-loader": "7.1.x",
     "babel-preset-env": "1.7.x",
