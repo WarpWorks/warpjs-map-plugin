@@ -1,5 +1,9 @@
 # Releases
 
+## 1.2.9 - 2018-12-13
+
+- npm outdated
+
 ## 1.2.8 - 2018-08-03
 
 - Refactored for new warpjsUtils.sendPortalIndex().
