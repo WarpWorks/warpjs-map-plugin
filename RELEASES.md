@@ -1,5 +1,9 @@
 # Releases
 
+## 1.2.10 - 2018-12-13
+
+- npm outdated
+
 ## 1.2.9 - 2019-01-09
 
 - Update version of warpjs-utils.
