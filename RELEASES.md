@@ -1,5 +1,9 @@
 # Releases
 
+## 1.2.11 - 2019-05-08
+
+- npm audit
+
 ## 1.2.10 - 2018-12-13
 
 - npm outdated
