@@ -26,10 +26,10 @@ module.exports = ($, colId, rowId) => {
 
         // Column header row
         // [null] for top left corner cell empty.
-        table.push([EMPTY_HEADER].concat(activeSubCols.map((subCol) => generateTableHeaderCell(subCol))));
+        table.push([ EMPTY_HEADER ].concat(activeSubCols.map((subCol) => generateTableHeaderCell(subCol))));
 
         activeSubRows.forEach((subRow) => {
-            table.push([generateTableHeaderCell(subRow)].concat(activeSubCols.map((subCol) => generateTableCell(subCol, subRow, intersection))));
+            table.push([ generateTableHeaderCell(subRow) ].concat(activeSubCols.map((subCol) => generateTableCell(subCol, subRow, intersection))));
         });
 
         return table;

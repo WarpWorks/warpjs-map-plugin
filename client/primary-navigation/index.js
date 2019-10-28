@@ -4,7 +4,7 @@ const navigationClicked = require('./navigation-clicked');
 const template = require('./navigation-template.hbs');
 
 module.exports = ($, elements) => {
-    $(constants.LIST_ITEMS).html(template({elements}));
+    $(constants.LIST_ITEMS).html(template({ elements }));
 
     $(constants.LIST_ITEMS).on('click', constants.LIST_ITEM, function(e) {
         e.preventDefault();

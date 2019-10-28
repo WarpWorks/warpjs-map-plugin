@@ -29,7 +29,7 @@ function embedMapMarker(resource, req, mapMarker, id) {
         });
 
         const embeddedResource = warpjsUtils.createResource(url, mapMarker);
-        embeddedResource.link("preview", RoutesInfo.expand('W2:portal:preview', {type: mapMarker.W2Type, id: mapMarker.id}));
+        embeddedResource.link("preview", RoutesInfo.expand('W2:portal:preview', { type: mapMarker.W2Type, id: mapMarker.id }));
         resource.embed('mapMarkers', embeddedResource);
     }
 }
@@ -43,7 +43,7 @@ module.exports = (config, warpCore, Persistence, req, res) => {
     return Promise.resolve()
         .then(() => data.getData(config, warpCore, Persistence, column, row))
         .then((results) => {
-            const resource = warpjsUtils.createResource(req, _.pick(results, ['columns', 'rows', 'aggregations', 'selectableLinks']));
+            const resource = warpjsUtils.createResource(req, _.pick(results, [ 'columns', 'rows', 'aggregations', 'selectableLinks' ]));
 
             // Embed image to columns.
             resource.columns.forEach((column) => {

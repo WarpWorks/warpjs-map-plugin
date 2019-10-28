@@ -38,7 +38,7 @@ describe("server/map/controllers", () => {
                     Accept: 'unknown'
                 }
             };
-            const {req, res} = testHelpers.createMocks(reqOptions);
+            const { req, res } = testHelpers.createMocks(reqOptions);
 
             controllers.initialMap(null, null, persistence, req, res);
 
@@ -54,7 +54,7 @@ describe("server/map/controllers", () => {
                     Accept: 'text/html'
                 }
             };
-            const {req, res} = testHelpers.createMocks(reqOptions);
+            const { req, res } = testHelpers.createMocks(reqOptions);
             req.app = { get: appGet };
             res.app = { get: appGet };
 
@@ -86,7 +86,7 @@ describe("server/map/controllers", () => {
                     Accept: warpjsUtils.constants.HAL_CONTENT_TYPE
                 }
             };
-            const {req, res} = testHelpers.createMocks(reqOptions);
+            const { req, res } = testHelpers.createMocks(reqOptions);
 
             controllers.initialMap(config, null, persistence, req, res);
 

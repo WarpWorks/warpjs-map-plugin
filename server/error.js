@@ -1,4 +1,4 @@
-const {WarpJSError} = require('@warp-works/warpjs-utils');
+const { WarpJSError } = require('@warp-works/warpjs-utils');
 
 class MapError extends WarpJSError {}
 

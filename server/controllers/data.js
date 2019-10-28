@@ -1,5 +1,5 @@
 const Promise = require('bluebird');
-const {byPositionThenName} = require('@warp-works/warpjs-utils');
+const { byPositionThenName } = require('@warp-works/warpjs-utils');
 
 const generatePayload = require('./generate-payload');
 const generatePersistenceConfig = require('./generate-persistence-config');
