@@ -1,5 +1,9 @@
 # Releases
 
+## 1.2.12 - 2019-10-28
+
+- npm outdated and eslint --fix.
+
 ## 1.2.11 - 2019-05-08
 
 - npm audit

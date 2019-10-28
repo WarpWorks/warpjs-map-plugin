@@ -1,14 +1,19 @@
 {
   "name": "@warp-works/warpjs-map-plugin",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "description": "WarpJS map browser plugin",
   "main": "index.js",
+  "engineStrict": true,
+  "engines": {
+    "node": ">=8.12.0"
+  },
   "scripts": {
     "prepare": "grunt",
     "prepack": "npm test",
     "coverage:integration": "nyc npm run -s test:integration",
     "coverage:unit": "nyc npm run -s test:unit",
     "coverage": "npm run -s coverage:unit",
+    "coverage-report": "nyc report --reporter=text --reporter=text-summary",
     "test:integration": "mocha -r jsdom-global/register \"*.integration.test.js\" \"client/**/*.integration.test.js\" \"server/**/*.integration.test.js\"",
     "test:unit": "mocha -r jsdom-global/register \"*.unit.test.js\" \"client/**/*.unit.test.js\" \"server/**/*.unit.test.js\"",
     "test": "npm run -s test:unit "
