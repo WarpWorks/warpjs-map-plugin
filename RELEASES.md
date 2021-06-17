@@ -1,5 +1,9 @@
 # Releases
 
+## 2.0.0-rc.1 - 2021-06-17
+
+- Updating packages and node@14
+
 ## 1.2.12 - 2019-10-28
 
 - npm outdated and eslint --fix.
