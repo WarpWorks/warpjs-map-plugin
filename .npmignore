@@ -1,4 +1,5 @@
 /.*rc
+/.github
 /.npmignore
 /.nyc_output
 /client
